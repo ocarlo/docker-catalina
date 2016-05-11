@@ -6,10 +6,10 @@ RUN \
 	 apt-get install -y curl
 
 RUN \
-    curl -v -j -k -L -H "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u73-b02/jdk-8u73-linux-x64.tar.gz > /jdk-8u73-linux-x64.tar.gz && \
-    tar -zxvf /jdk-8u73-linux-x64.tar.gz && \
-    rm /jdk-8u73-linux-x64.tar.gz
-ENV JAVA_HOME /jdk1.8.0_73
+    curl -v -j -k -L -H "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u92-b14/jdk-8u92-linux-x64.tar.gz > /jdk-8u92-linux-x64.tar.gz && \
+    tar -zxvf /jdk-8u92-linux-x64.tar.gz && \
+    rm /jdk-8u92-linux-x64.tar.gz
+ENV JAVA_HOME /jdk1.8.0_92
 ENV PATH $PATH:$JAVA_HOME/bin
 
 RUN \
