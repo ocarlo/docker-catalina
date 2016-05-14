@@ -13,11 +13,12 @@ ENV JAVA_HOME /jdk1.8.0_92
 ENV PATH $PATH:$JAVA_HOME/bin
 
 RUN \
-   curl -v -j -k -L http://www.mirrorservice.org/sites/ftp.apache.org/tomcat/tomcat-8/v8.0.33/bin/apache-tomcat-8.0.33.tar.gz > apache-tomcat-8.0.33.tar.gz && \
+   curl -v -j -k -L http://www.mirrorservice.org/sites/ftp.apache.org/tomcat/tomcat-8/v8.0.33/bin/apache-tomcat-8.0.33.tar.gz > /apache-tomcat-8.0.33.tar.gz && \
    tar -zxvf /apache-tomcat-8.0.33.tar.gz && \
+   mv /apache-tomcat-8.0.33 /tomcat && \
    rm /apache-tomcat-8.0.33.tar.gz
 
-ENV CATALINA_HOME /apache-tomcat-8.0.33
+ENV CATALINA_HOME /tomcat
 ENV PATH $PATH:$CATALINA_HOME/bin
 
-ENTRYPOINT [ "/apache-tomcat-8.0.33/bin/catalina.sh",  "run" ]
+ENTRYPOINT [ "/tomcat/bin/catalina.sh",  "run" ]
